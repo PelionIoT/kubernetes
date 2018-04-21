@@ -21,7 +21,7 @@ package options
 // given binary target.
 import (
 	// Cloud providers
-	_ "k8s.io/kubernetes/pkg/cloudprovider/providers"
+	//_ "k8s.io/kubernetes/pkg/cloudprovider/providers"
 
 	// Admission policies
 	"k8s.io/apiserver/pkg/admission"
@@ -40,8 +40,8 @@ import (
 	"k8s.io/kubernetes/plugin/pkg/admission/namespace/autoprovision"
 	"k8s.io/kubernetes/plugin/pkg/admission/namespace/exists"
 	"k8s.io/kubernetes/plugin/pkg/admission/noderestriction"
-	"k8s.io/kubernetes/plugin/pkg/admission/persistentvolume/label"
-	"k8s.io/kubernetes/plugin/pkg/admission/persistentvolume/resize"
+	//"k8s.io/kubernetes/plugin/pkg/admission/persistentvolume/label"
+	//"k8s.io/kubernetes/plugin/pkg/admission/persistentvolume/resize"
 	"k8s.io/kubernetes/plugin/pkg/admission/podnodeselector"
 	"k8s.io/kubernetes/plugin/pkg/admission/podpreset"
 	"k8s.io/kubernetes/plugin/pkg/admission/podtolerationrestriction"
@@ -71,7 +71,7 @@ func RegisterAllAdmissionPlugins(plugins *admission.Plugins) {
 	autoprovision.Register(plugins)
 	exists.Register(plugins)
 	noderestriction.Register(plugins)
-	label.Register(plugins) // DEPRECATED in favor of NewPersistentVolumeLabelController in CCM
+	//label.Register(plugins) // DEPRECATED in favor of NewPersistentVolumeLabelController in CCM
 	podnodeselector.Register(plugins)
 	podpreset.Register(plugins)
 	podtolerationrestriction.Register(plugins)
@@ -82,5 +82,5 @@ func RegisterAllAdmissionPlugins(plugins *admission.Plugins) {
 	serviceaccount.Register(plugins)
 	setdefault.Register(plugins)
 	webhook.Register(plugins)
-	resize.Register(plugins)
+	//resize.Register(plugins)
 }
